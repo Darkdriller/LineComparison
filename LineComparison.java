@@ -34,7 +34,30 @@ public class LineComparison {
 		double length2 = Math.sqrt(Math.pow(x4 - x3, 2) + Math.pow(y4 - y3, 2));
 		String str2 = Double.toString(length2);
 
-                System.out.println(str1.equals(str2));                 
+                final int EQUAL = 0, GREATER = 1, LESSER = -1;
+
+                int comparisonResult = str1.compareTo(str2);
+                int adjustedComparison;
+                if (comparisonResult < 0) {
+                   adjustedComparison = LESSER;
+                } else if (comparisonResult > 0) {
+                   adjustedComparison = GREATER;
+                } else {
+                   adjustedComparison = EQUAL;
+                }
+                
+                switch(adjustedComparison){
+                  case GREATER:
+                     System.out.println("Line 1 greater than Line 2");
+                     break;
+
+                  case LESSER:
+                     System.out.println("Line 1 Lesser than Line 2");
+                     break;
+                  
+                  default:
+                     System.out.println("Line 1 Equal to Line 2");
+             }
 
 	}
 }
